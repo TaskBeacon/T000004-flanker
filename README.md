@@ -5,12 +5,12 @@
 | Field                | Value                                      |
 |----------------------|--------------------------------------------|
 | Name                 | Eriksen Flanker Task                       |
-| Version              | main (1.0)                                 |
+| Version | main (1.1.0) |
 | URL / Repository     | https://github.com/TaskBeacon/T000004-flanker      |
 | Short Description    | A task measuring response inhibition and selective attention. |
 | Created By           | Zhipeng Cao (zhipeng30@foxmail.com)        |
-| Date Updated         | 2025/07/24                                 |
-| PsyFlow Version      | 0.1.0                                      |
+| Date Updated | 2026/02/16 |
+| PsyFlow Version | 0.1.8 |
 | PsychoPy Version     | 2025.1.1                                   |
 | Modality             | Behavior/EEG                               |
 | Language | Chinese |
@@ -86,7 +86,7 @@ Standard PsychoPy window settings for fullscreen display.
 | fixation              | 0.5                | fixation_duration  |
 | stimulus              | 1.0 (max response time) | stim_duration      |
 | feedback              | 0.5                | feedback_duration  |
-| iti                   | random 0.8â€?.2     | iti_duration |
+| iti                   | random 0.8?.2     | iti_duration |
 
 ### e. Triggers
 
