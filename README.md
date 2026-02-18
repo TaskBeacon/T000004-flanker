@@ -48,6 +48,12 @@ The Eriksen Flanker Task is a classic experimental paradigm used to assess selec
 | Feedback            | Display feedback (`Correct`, `Incorrect`, or `Too Slow`).                   |
 | ITI                 | A blank screen shown for a random duration before the next trial.           |
 
+### Runtime Context Phases
+| Phase Label | Meaning |
+|---|---|
+| `pre_stim_fixation` | pre stim fixation stage in `src/run_trial.py` responder context. |
+| `flanker_response` | flanker response stage in `src/run_trial.py` responder context. |
+
 ## 3. Configuration Summary
 
 ### a. Subject Info
