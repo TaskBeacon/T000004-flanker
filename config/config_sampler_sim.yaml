@@ -2,25 +2,26 @@
 # - Used by: python main.py sim --config config/config_sampler_sim.yaml
 # - Scope: sampler simulation only (no qa section in this file)
 # - Profile: short smoke run for sampler integration checks
+
 subinfo_fields:
-- name: subject_id
-  type: int
-  constraints:
-    min: 101
-    max: 999
-    digits: 3
-- name: subname
-  type: string
-- name: age
-  type: int
-  constraints:
-    min: 5
-    max: 60
-- name: gender
-  type: choice
-  choices:
-  - Male
-  - Female
+  - name: subject_id
+    type: int
+    constraints:
+      min: 101
+      max: 999
+      digits: 3
+  - name: subname
+    type: string
+  - name: age
+    type: int
+    constraints:
+      min: 5
+      max: 60
+  - name: gender
+    type: choice
+    choices:
+      - Male
+      - Female
 subinfo_mapping:
   subject_id: 被试号
   subname: 被试姓名(拼音)
@@ -33,8 +34,8 @@ subinfo_mapping:
   invalid_input: 字段 {field} 输入无效
 window:
   size:
-  - 1920
-  - 1080
+    - 1920
+    - 1080
   units: deg
   screen: 1
   bg_color: gray
@@ -49,13 +50,13 @@ task:
   total_trials: 16
   trial_per_block: 16
   conditions:
-  - congruent_left
-  - congruent_right
-  - incongruent_left
-  - incongruent_right
+    - congruent_left
+    - congruent_right
+    - incongruent_left
+    - incongruent_right
   key_list:
-  - f
-  - j
+    - f
+    - j
   left_key: f
   right_key: j
   seed_mode: same_across_sub
@@ -89,47 +90,36 @@ stimuli:
     height: 1.5
   block_break:
     type: text
-    text: '第 {block_num} / {total_blocks} 部分完成
-
+    text: |
+      第 {block_num} / {total_blocks} 部分完成
       正确率：{accuracy:.2%}
 
-
       请在充分休息后按【空格键】继续
-
-      '
     color: white
     height: 1.5
   instruction_text:
     type: textbox
-    text: '【Flanker任务】
-
+    text: |
+      【Flanker任务】
 
       任务开始后，屏幕中央会显示一个“+”号，请注视它。
-
       随后，会出现一排箭头（例如 >>>>> 或 >><>>）。
-
       请您尽快判断中间箭头的朝向。
 
-
       如果中间箭头朝向左（<），请按【f】方向键。
-
       如果中间箭头朝向右（>），请按【j】方向键。
-
 
       请只关注中间的箭头，忽略两边的箭头。
 
-
       准备好后，请按【空格键】开始。
-
-      '
     color: white
     font: SimHei
     alignment: center
     letterHeight: 0.78
     units: deg
     size:
-    - 20
-    - 5
+      - 20
+      - 5
   good_bye:
     type: text
     text: 实验结束，感谢您的参与！
@@ -137,8 +127,8 @@ stimuli:
     height: 1.5
 timing:
   iti_duration:
-  - 0.8
-  - 1.2
+    - 0.8
+    - 1.2
   fixation_duration: 0.5
   stim_duration: 1.0
 triggers:
@@ -159,10 +149,10 @@ triggers:
     baudrate: 115200
     timeout: 1
     prefix:
-    - 1
-    - 225
-    - 1
-    - 0
+      - 1
+      - 225
+      - 1
+      - 0
   policy:
     strict: false
   timing:
