@@ -1,0 +1,53 @@
+task_id: T000004
+generated_at: "2026-03-02T17:05:00Z"
+selection_policy: manual_curation_flanker_core_plus_conflict_control
+citation_threshold: 100
+papers:
+  - id: W2058317558
+    title: "Effects of noise letters upon the identification of a target letter in a nonsearch task"
+    year: 1974
+    journal: "Perception & Psychophysics"
+    doi_or_url: "https://doi.org/10.3758/bf03203267"
+    citation_count: 7213
+    open_access: true
+    is_high_impact: false
+    used_for:
+      - flanker_core_paradigm
+      - congruent_incongruent_logic
+      - interference_measure
+  - id: W2131582654
+    title: "Sources of Interference from Irrelevant Information: A Developmental Study"
+    year: 1997
+    journal: "Journal of Experimental Child Psychology"
+    doi_or_url: "https://doi.org/10.1006/jecp.1997.2367"
+    citation_count: 231
+    open_access: false
+    is_high_impact: false
+    used_for:
+      - flanker_developmental_variant
+      - response_accuracy_and_rt
+      - trial_timing_context
+  - id: W2000998192
+    title: "Conflict monitoring and cognitive control."
+    year: 2001
+    journal: "Psychological Review"
+    doi_or_url: "https://doi.org/10.1037/0033-295x.108.3.624"
+    citation_count: 7005
+    open_access: false
+    is_high_impact: true
+    used_for:
+      - conflict_monitoring_theory
+      - executive_control_interpretation
+      - flanker_effect_interpretation
+  - id: W2150902492
+    title: "Testing the Efficiency and Independence of Attentional Networks"
+    year: 2002
+    journal: "Journal of Cognitive Neuroscience"
+    doi_or_url: "https://doi.org/10.1162/089892902317361886"
+    citation_count: 3683
+    open_access: false
+    is_high_impact: true
+    used_for:
+      - ant_flanker_implementation
+      - block_trial_design
+      - eeg_compatible_event_timing
