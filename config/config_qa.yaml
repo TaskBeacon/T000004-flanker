@@ -87,24 +87,6 @@ stimuli:
     text: <<><<
     color: white
     height: 1.5
-  correct_feedback:
-    type: text
-    text: 正确
-    color: green
-    font: SimHei
-    height: 1.5
-  incorrect_feedback:
-    type: text
-    text: 错误
-    color: red
-    font: SimHei
-    height: 1.5
-  no_response_feedback:
-    type: text
-    text: 未反应
-    color: orange
-    font: SimHei
-    height: 1.5
   block_break:
     type: text
     text: '第 {block_num} / {total_blocks} 部分完成
@@ -159,7 +141,6 @@ timing:
   - 1.2
   fixation_duration: 0.5
   stim_duration: 1.0
-  feedback_duration: 0.5
 triggers:
   map:
     exp_onset: 98
@@ -171,10 +152,7 @@ triggers:
     incongruent_stim_onset: 20
     left_key_press: 30
     right_key_press: 31
-    feedback_correct_response: 51
-    feedback_incorrect_response: 52
-    feedback_no_response: 53
-    feedback_onset: 60
+    response_timeout: 32
   driver:
     type: serial_url
     url: loop://
@@ -211,10 +189,7 @@ qa:
     - 20
     - 30
     - 31
-    - 51
-    - 52
-    - 53
-    - 60
+    - 32
     - 98
     - 99
     - 100

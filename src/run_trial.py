@@ -83,28 +83,10 @@ def run_trial(
             settings.right_key: settings.triggers.get("right_key_press"),
         },
         onset_trigger=settings.triggers.get(f"{flanker_type}_stim_onset"),
+        timeout_trigger=settings.triggers.get("response_timeout"),
         terminate_on_response=True,
     )
     stim_unit.to_dict(trial_data)
-
-    # outcome display
-    response = stim_unit.get_state("response", False)
-    hit = stim_unit.get_state("hit", False)
-
-    if response and hit:
-        feedback_stim = stim_bank.get("correct_feedback")
-        feedback_trigger = settings.triggers.get("feedback_correct_response")
-    elif response and not hit:
-        feedback_stim = stim_bank.get("incorrect_feedback")
-        feedback_trigger = settings.triggers.get("feedback_incorrect_response")
-    else:
-        feedback_stim = stim_bank.get("no_response_feedback")
-        feedback_trigger = settings.triggers.get("feedback_no_response")
-
-    make_unit(unit_label="feedback").add_stim(feedback_stim).show(
-        duration=settings.feedback_duration,
-        onset_trigger=feedback_trigger,
-    ).to_dict(trial_data)
 
     make_unit(unit_label="iti").show(duration=settings.iti_duration).to_dict(trial_data)
 

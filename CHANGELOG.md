@@ -2,6 +2,28 @@
 
 All notable development changes for `T000004-flanker` are documented here.
 
+## [1.2.0] - 2026-03-02
+
+### Changed
+- Added explicit response-timeout trigger wiring in `src/run_trial.py` (`timeout_trigger -> response_timeout`).
+- Updated `README.md` to standardized structure with required `### Controller Logic` subsection and refreshed metadata/runtime/config tables.
+- Updated `taskbeacon.yaml` metadata:
+  - set `version.release_tag: v1.2.0`
+  - populated `cognitive_domain`
+  - populated `evidence`
+  - populated `maintainer`
+- Added contract-compliant reference artifacts under `references/`:
+  - `references.yaml`
+  - `references.md`
+  - `parameter_mapping.md`
+  - `stimulus_mapping.md`
+  - `task_logic_audit.md`
+
+### Removed
+- Removed per-trial feedback presentation stage (`correct/incorrect/no_response`) from `src/run_trial.py`.
+- Removed feedback-only stimulus and timing entries from `config/*.yaml`.
+- Removed feedback trigger codes from `config/*.yaml` and QA trigger acceptance list.
+
 ## [Unreleased]
 
 ### Changed

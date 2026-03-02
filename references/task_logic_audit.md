@@ -58,16 +58,9 @@
    - Stimuli shown: one of `congruent_left`, `congruent_right`, `incongruent_left`, `incongruent_right`.
    - Valid keys: `left_key`, `right_key`.
    - Timeout behavior: response window closes at `stim_duration` if no key response.
-   - Next state: `feedback`.
-
-3. `feedback`
-   - Onset trigger: one of `feedback_correct_response`, `feedback_incorrect_response`, `feedback_no_response`.
-   - Stimuli shown: `correct_feedback`, `incorrect_feedback`, or `no_response_feedback`.
-   - Valid keys: none captured in this phase.
-   - Timeout behavior: fixed `feedback_duration`.
    - Next state: `inter_trial_interval`.
 
-4. `inter_trial_interval`
+3. `inter_trial_interval`
    - Onset trigger: none configured.
    - Stimuli shown: blank frame (no explicit visual stimulus).
    - Valid keys: none captured.
@@ -113,7 +106,7 @@ Participant-facing text/stimulus source:
 - Response key source:
   - config fields (`task.left_key`, `task.right_key`, `task.key_list`).
 - Missing-response policy:
-  - no response during `stim_duration` routes to `no_response_feedback`.
+  - no response during `stim_duration` emits `response_timeout` trigger.
 - Correctness logic:
   - `capture_response(..., correct_keys=correct_response)` computes `stimulus_hit`.
 - Reward/penalty updates:
@@ -137,13 +130,6 @@ Participant-facing text/stimulus source:
   - Readability/overlap checks: single-item screen, no overlap risk.
   - Rationale: isolate center-arrow judgment under congruent/incongruent context.
 
-- Screen name: `feedback`
-  - Stimulus IDs shown together: one of feedback text stimuli.
-  - Layout anchors (`pos`): default centered text.
-  - Size/spacing: height configured (`1.5`).
-  - Readability/overlap checks: single-item screen, no overlap risk.
-  - Rationale: immediate performance acknowledgment.
-
 ## 6. Trigger Plan
 
 - Experiment-level:
@@ -156,12 +142,8 @@ Participant-facing text/stimulus source:
   - `incongruent_stim_onset=20`.
 - Response events:
   - `left_key_press=30`
-  - `right_key_press=31`.
-- Feedback branch:
-  - `feedback_correct_response=51`
-  - `feedback_incorrect_response=52`
-  - `feedback_no_response=53`
-  - `feedback_onset=60` (declared in config, not currently emitted by `run_trial.py`).
+  - `right_key_press=31`
+  - `response_timeout=32`.
 
 ## 7. Architecture Decisions (Auditability)
 
@@ -177,10 +159,6 @@ Participant-facing text/stimulus source:
   - none identified.
 
 ## 8. Inference Log
-
-- Decision: include explicit feedback stage (`correct/incorrect/no_response`) after response.
-  - Why inference was required: canonical Flanker references do not mandate a specific feedback policy in every implementation.
-  - Citation-supported rationale: behavior/EEG practical implementations often use immediate performance feedback for participant compliance (`W2131582654`, `W2150902492` context).
 
 - Decision: set human run size to `3 x 60` and QA/sim to `1 x 16`.
   - Why inference was required: selected references establish paradigm logic but not this exact engineering profile.

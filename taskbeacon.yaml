@@ -3,11 +3,18 @@ slug: flanker
 title: Flanker Task
 acquisition: eeg
 variant: baseline
-cognitive_domain: []
+cognitive_domain:
+  - attention
+  - cognitive_control
 maturity: smoke_tested
 version:
-  release_tag: ''
-evidence: []
-maintainer: []
+  release_tag: v1.2.0
+evidence:
+  - W2058317558
+  - W2131582654
+  - W2000998192
+  - W2150902492
+maintainer:
+  - Zhipeng Cao
 contracts:
   psyflow_taps: v0.1.0
