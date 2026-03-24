@@ -12,7 +12,7 @@ task_plot_spec:
       background: white
     layout:
       max_conditions: 4
-      screens_per_timeline: 6
+      screens_per_timeline: 3
       screen_overlap_ratio: 0.1
       screen_slope: 0.08
       screen_slope_deg: 25.0
@@ -55,7 +55,7 @@ task_plot_spec:
           height: 1.5
       notes: ''
     - phase_name: flanker response
-      display_phase_label: Flanker
+      display_phase_label: Flanker Response
       duration_ms:
         fixed: 1000
       response_window_ms:
@@ -74,10 +74,198 @@ task_plot_spec:
           pos: null
           height: 1.5
       notes: ''
-    condition_variants:
-    - congruent_right
-    - incongruent_left
-    - incongruent_right
-    display_condition_note: 'Also: Congruent Right, Incongruent Left, Incongruent
-      Right'
+    - phase_name: inter trial interval
+      display_phase_label: ITI
+      duration_ms:
+        range:
+        - 800
+        - 1200
+      response_window_ms: null
+      display_timing_label: 800-1200 ms
+      stim_ids: []
+      stimulus_example:
+        summary: Blank ITI
+        modality: visual
+        draw_hint: annotation
+        render_items:
+        - kind: annotation
+          text: ITI
+      notes: inferred from show() without set_trial_context
+  - condition: congruent_right
+    display_condition_label: Congruent Right
+    phases:
+    - phase_name: pre stim fixation
+      display_phase_label: Fixation
+      duration_ms:
+        fixed: 500
+      response_window_ms: null
+      display_timing_label: 500 ms
+      stim_ids:
+      - fixation
+      stimulus_example:
+        summary: +
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: +
+          color: white
+          pos: null
+          height: 1.5
+      notes: ''
+    - phase_name: flanker response
+      display_phase_label: Flanker Response
+      duration_ms:
+        fixed: 1000
+      response_window_ms:
+        fixed: 1000
+      display_timing_label: 1000 ms
+      stim_ids:
+      - congruent_right
+      stimulus_example:
+        summary: '>>>>>'
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: '>>>>>'
+          color: white
+          pos: null
+          height: 1.5
+      notes: ''
+    - phase_name: inter trial interval
+      display_phase_label: ITI
+      duration_ms:
+        range:
+        - 800
+        - 1200
+      response_window_ms: null
+      display_timing_label: 800-1200 ms
+      stim_ids: []
+      stimulus_example:
+        summary: Blank ITI
+        modality: visual
+        draw_hint: annotation
+        render_items:
+        - kind: annotation
+          text: ITI
+      notes: inferred from show() without set_trial_context
+  - condition: incongruent_left
+    display_condition_label: Incongruent Left
+    phases:
+    - phase_name: pre stim fixation
+      display_phase_label: Fixation
+      duration_ms:
+        fixed: 500
+      response_window_ms: null
+      display_timing_label: 500 ms
+      stim_ids:
+      - fixation
+      stimulus_example:
+        summary: +
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: +
+          color: white
+          pos: null
+          height: 1.5
+      notes: ''
+    - phase_name: flanker response
+      display_phase_label: Flanker Response
+      duration_ms:
+        fixed: 1000
+      response_window_ms:
+        fixed: 1000
+      display_timing_label: 1000 ms
+      stim_ids:
+      - incongruent_left
+      stimulus_example:
+        summary: '>><>>'
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: '>><>>'
+          color: white
+          pos: null
+          height: 1.5
+      notes: ''
+    - phase_name: inter trial interval
+      display_phase_label: ITI
+      duration_ms:
+        range:
+        - 800
+        - 1200
+      response_window_ms: null
+      display_timing_label: 800-1200 ms
+      stim_ids: []
+      stimulus_example:
+        summary: Blank ITI
+        modality: visual
+        draw_hint: annotation
+        render_items:
+        - kind: annotation
+          text: ITI
+      notes: inferred from show() without set_trial_context
+  - condition: incongruent_right
+    display_condition_label: Incongruent Right
+    phases:
+    - phase_name: pre stim fixation
+      display_phase_label: Fixation
+      duration_ms:
+        fixed: 500
+      response_window_ms: null
+      display_timing_label: 500 ms
+      stim_ids:
+      - fixation
+      stimulus_example:
+        summary: +
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: +
+          color: white
+          pos: null
+          height: 1.5
+      notes: ''
+    - phase_name: flanker response
+      display_phase_label: Flanker Response
+      duration_ms:
+        fixed: 1000
+      response_window_ms:
+        fixed: 1000
+      display_timing_label: 1000 ms
+      stim_ids:
+      - incongruent_right
+      stimulus_example:
+        summary: <<><<
+        modality: visual
+        draw_hint: text
+        render_items:
+        - kind: text
+          text: <<><<
+          color: white
+          pos: null
+          height: 1.5
+      notes: ''
+    - phase_name: inter trial interval
+      display_phase_label: ITI
+      duration_ms:
+        range:
+        - 800
+        - 1200
+      response_window_ms: null
+      display_timing_label: 800-1200 ms
+      stim_ids: []
+      stimulus_example:
+        summary: Blank ITI
+        modality: visual
+        draw_hint: annotation
+        render_items:
+        - kind: annotation
+          text: ITI
+      notes: inferred from show() without set_trial_context
   legend: []

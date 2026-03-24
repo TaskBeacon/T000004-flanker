@@ -1,20 +1,21 @@
-# Task Plot Audit
+# 任务流程图审计
 
-- generated_at: 2026-03-10T00:17:21
+- generated_at: 2026-03-23T22:57:08
 - mode: existing
-- task_path: E:\Taskbeacon\T000004-flanker
+- task_path: E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker
 
-## 1. Inputs and provenance
+## 1. 输入与来源
 
-- E:\Taskbeacon\T000004-flanker\README.md
-- E:\Taskbeacon\T000004-flanker\config\config.yaml
-- E:\Taskbeacon\T000004-flanker\src\run_trial.py
+- E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker\README.md
+- E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker\config\config.yaml
+- E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker\src\run_trial.py
 
-## 2. Evidence extracted from README
+## 2. 从 README 提取的证据
 
-- Trial-Level Flow table not found; run_trial.py used as primary source.
+- README 没有单独的 Trial-Level Flow 表，因此以 `run_trial.py` 作为主证据源。
+- README 的 `Task Flow` 预览仅用于确认任务目录中的图已被更新。
 
-## 3. Evidence extracted from config/source
+## 3. 从 config/source 提取的证据
 
 - congruent_left: phase=pre stim fixation, deadline_expr=settings.fixation_duration, response_expr=n/a, stim_expr='fixation'
 - congruent_left: phase=flanker response, deadline_expr=settings.stim_duration, response_expr=settings.stim_duration, stim_expr=str(condition)
@@ -24,8 +25,15 @@
 - incongruent_left: phase=flanker response, deadline_expr=settings.stim_duration, response_expr=settings.stim_duration, stim_expr=str(condition)
 - incongruent_right: phase=pre stim fixation, deadline_expr=settings.fixation_duration, response_expr=n/a, stim_expr='fixation'
 - incongruent_right: phase=flanker response, deadline_expr=settings.stim_duration, response_expr=settings.stim_duration, stim_expr=str(condition)
+- iti: phase=inter trial interval, duration_expr=settings.iti_duration, context=show() without set_trial_context(...)
 
-## 4. Mapping to task_plot_spec
+## 3b. 说明
+
+- `run_trial.py` 里 `make_unit(unit_label="iti").show(...)` 没有 `set_trial_context(...)`，初版推断漏掉了这一段参与者可见的空白间隔。
+- 最终规范已把 `ITI` 补回到每条时间线，和 `config/config.yaml` 中的 `iti_duration` 保持一致。
+- 代码中没有复杂分支，因此没有未解析的 if-test 警告。
+
+## 4. 映射到 task_plot_spec
 
 - timeline collection: one representative timeline per unique trial logic
 - phase flow inferred from run_trial set_trial_context order and branch predicates
@@ -36,34 +44,40 @@
 - root_key: task_plot_spec
 - spec_version: 0.2
 
-## 5. Style decision and rationale
+## 5. 样式决策与理由
 
-- Single timeline-collection view selected by policy: one representative condition per unique timeline logic.
+- 采用 4 条时间线，分别对应 `congruent_left`、`congruent_right`、`incongruent_left`、`incongruent_right`，便于直接比较四种具体刺激文本。
+- 阶段标签明确写成 `Fixation`、`Flanker Response`、`ITI`，避免过度压缩导致语义不清。
+- `ITI` 使用文本注释作为最后手段，因为该阶段本身没有可视刺激。
 
-## 6. Rendering parameters and constraints
+## 6. 渲染参数与约束
 
 - output_file: task_flow.png
 - dpi: 300
 - max_conditions: 4
-- screens_per_timeline: 6
+- screens_per_timeline: 3
 - screen_overlap_ratio: 0.1
 - screen_slope: 0.08
 - screen_slope_deg: 25.0
 - screen_aspect_ratio: 1.4545454545454546
 - qa_mode: local
 - auto_layout_feedback:
-  - layout pass 1: crop-only; left=0.011, right=0.039, blank=0.135
+  - layout pass 1: no adjustment needed; left=0.055, right=0.055, blank=0.162
 - auto_layout_feedback_records:
   - pass: 1
-    metrics: {'left_ratio': 0.011, 'right_ratio': 0.0388, 'blank_ratio': 0.1354}
+    metrics: {'left_ratio': 0.0549, 'right_ratio': 0.0549, 'blank_ratio': 0.1615}
+    vision_model: None
+    issues: []
+    adjustments: {}
 
-## 7. Output files and checksums
+## 7. 输出文件与校验和
 
-- E:\Taskbeacon\T000004-flanker\references\task_plot_spec.yaml: sha256=013c12bf6c99a320bedd4fc3a0941f6eb05f0e208fc10ee8f936d167f071a3f4
-- E:\Taskbeacon\T000004-flanker\references\task_plot_spec.json: sha256=8a70f649cde3c6f6f07220060adb8dce02516402536d5beb5c377cd49ce59b62
-- E:\Taskbeacon\T000004-flanker\references\task_plot_source_excerpt.md: sha256=84d2b126c8bbd55e1632e43a0dc46ccd489863e428779de7a7df5b8de722e1a3
-- E:\Taskbeacon\T000004-flanker\task_flow.png: sha256=2696c5c954e711107488eb7de1c8eaf89e22f94e0736eaba282d13b01041672a
+- E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker\references\task_plot_spec.yaml: sha256=f7dfe4a086977ad5d8a7963a1191c9dfb556cda57a1206e40b5a418d45ef2543
+- E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker\references\task_plot_spec.json: sha256=75fb33a8b6b91c7a607db5e4c9eb56012c0eb696dbab6f2c57f608c31af8685d
+- E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker\references\task_plot_source_excerpt.md: sha256=be9abd9b8a48b0042f2043de062ce15314ec3666f7ebf36463dcc2e8e5a2ef72
+- E:\xhmhc\TaskBeacon\benchmark\runs\task_plot_redo\T000004-flanker\task_flow.png: sha256=7c6f0b0f12e9760a9f8f6511878c2d76941fa91cd96045f507b6a868b0ad735b
 
-## 8. Inferred/uncertain items
+## 8. 推断/不确定项
 
-- collapsed equivalent condition logic into representative timeline: congruent_left, congruent_right, incongruent_left, incongruent_right
+- `ITI` 阶段是从 `show()` 调用中补回的，属于最终修正项，不再视为不确定。
+- 其余流程与时间、响应窗口均可直接由 `run_trial.py` 和 `config/config.yaml` 解释。
