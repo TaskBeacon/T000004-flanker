@@ -2,6 +2,12 @@
 
 All notable development changes for `T000004-flanker` are documented here.
 
+## [1.2.1] - 2026-06-18
+
+### Added
+- Added `responders/task_sampler.py` as the standard TaskSamplerResponder entry point.
+- Added `assets/README.md` documenting that Flanker stimuli are config-defined text primitives.
+
 ## [1.2.0] - 2026-03-02
 
 ### Changed
