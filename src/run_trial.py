@@ -88,6 +88,24 @@ def run_trial(
     )
     stim_unit.to_dict(trial_data)
 
-    make_unit(unit_label="iti").show(duration=settings.iti_duration).to_dict(trial_data)
+    iti_unit = make_unit(unit_label="iti")
+    set_trial_context(
+        iti_unit,
+        trial_id=trial_id,
+        phase="iti",
+        deadline_s=settings.iti_duration,
+        valid_keys=[],
+        block_id=block_id,
+        condition_id=str(condition),
+        task_factors={
+            "condition": str(condition),
+            "stage": "iti",
+            "flanker_type": flanker_type,
+            "target_direction": target_direction,
+            "block_idx": block_idx,
+        },
+        stim_id="blank_iti",
+    )
+    iti_unit.show(duration=settings.iti_duration).to_dict(trial_data)
 
     return trial_data

@@ -32,6 +32,9 @@ All notable development changes for `T000004-flanker` are documented here.
 
 ## [Unreleased]
 
+### Fixed
+- Added trial context metadata for the ITI phase so the post-response blank interval is responder-auditable.
+
 ### Changed
 - Refactored `src/run_trial.py` to use `psyflow`'s native `next_trial_id()` and removed legacy internal `_next_trial_id` and `_deadline_s` functions.
 
