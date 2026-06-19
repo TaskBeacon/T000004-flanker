@@ -35,6 +35,9 @@ All notable development changes for `T000004-flanker` are documented here.
 ### Changed
 - Refactored `src/run_trial.py` to use `psyflow`'s native `next_trial_id()` and removed legacy internal `_next_trial_id` and `_deadline_s` functions.
 
+### Removed
+- Removed unused empty `src/utils.py`.
+
 ## [1.1.1] - 2026-02-18
 - Refactored responder context phase names in `src/run_trial.py` to task-specific labels (removed generic MID-style phase naming).
 - Updated stage comments in `src/run_trial.py` to phase-aligned labels for cleaner auditability.
